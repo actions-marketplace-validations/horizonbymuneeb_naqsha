@@ -40,7 +40,7 @@ git clone https://github.com/horizonbymuneeb/naqsha && cd naqsha
 
 Published: **https://github.com/horizonbymuneeb/naqsha** ·
 [npm](https://www.npmjs.com/package/naqsha-cli) — MIT, English-only, zero runtime
-dependencies, Node ≥18. Detailed per-agent steps: [docs/INSTALL.md](https://github.com/horizonbymuneeb/naqsha/blob/master/docs/INSTALL.md).
+dependencies, Node ≥18. Detailed per-agent steps: [docs/INSTALL.md](https://github.com/horizonbymuneeb/naqsha/blob/main/docs/INSTALL.md).
 
 Then ask your agent:
 

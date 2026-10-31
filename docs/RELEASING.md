@@ -15,7 +15,7 @@ node scripts/interact-check.mjs --html docs/demo-architecture.html
 3. Regenerate demo artifacts:
    `node src/cli/naqsha.mjs render examples/engine-repo.architecture.json docs/demo-architecture.html --json`
    (same for every file in `docs/demo-*.html` — see README's demo tables).
-4. Commit, push `master`.
+4. Commit, push `main`.
 
 ## Tag + GitHub release
 
