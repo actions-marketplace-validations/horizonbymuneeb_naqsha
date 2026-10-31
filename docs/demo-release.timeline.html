@@ -50,6 +50,9 @@
         <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="2.3"></circle><path d="M8 1.7v2.1M8 12.2v2.1M1.7 8h2.1M12.2 8h2.1"></path></svg>
       </button>
       <span class="tsep" aria-hidden="true"></span>
+      <button type="button" class="tbtn" id="minimap-toggle" aria-label="Show or hide the minimap (m)" title="Minimap (m)" aria-pressed="true">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2.2" y="3.2" width="11.6" height="9.6" rx="1.2"></rect><rect x="9.2" y="8.6" width="3.2" height="2.6" rx=".5" class="fillmark"></rect></svg>
+      </button>
       <button type="button" class="tbtn" id="print-btn" aria-label="Print diagram" title="Print diagram">
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.6 6V3h6.8v3"></path><rect x="2.5" y="6" width="11" height="5.2" rx="1"></rect><path d="M4.6 9.6h6.8V14H4.6z"></path></svg>
       </button>
@@ -60,6 +63,7 @@
         <div class="export-menu" id="export-menu" role="menu" aria-label="Export options" hidden>
           <button type="button" class="export-item" id="export-svg" role="menuitem"><span class="export-fmt">SVG</span><span class="export-name">Download SVG</span></button>
           <button type="button" class="export-item" id="export-png" role="menuitem"><span class="export-fmt">PNG</span><span class="export-name">Download PNG (2×)</span></button>
+          <button type="button" class="export-item" id="copy-png" role="menuitem"><span class="export-fmt">COPY</span><span class="export-name">Copy PNG to clipboard</span></button>
           <button type="button" class="export-item" id="export-webp" role="menuitem"><span class="export-fmt">WEBP</span><span class="export-name">Download WebP</span></button>
           <button type="button" class="export-item" id="export-jpeg" role="menuitem"><span class="export-fmt">JPEG</span><span class="export-name">Download JPEG</span></button>
           <button type="button" class="export-item" id="copy-mermaid" role="menuitem"><span class="export-fmt">MMD</span><span class="export-name">Copy as Mermaid</span></button>
@@ -88,7 +92,7 @@
   <main class="stage" id="stage">
     <svg class="grid" aria-hidden="true"><defs><pattern id="naqsha-dotgrid" width="24" height="24" patternUnits="userSpaceOnUse"><circle class="dot" cx="1" cy="1" r="1"></circle></pattern></defs><rect width="100%" height="100%" fill="url(#naqsha-dotgrid)"></rect></svg>
     <div class="canvas-inner" id="canvas-inner">
-<svg id="diagram" class="diagram" role="img" aria-label="Engine Release History. timeline diagram, 8 nodes, 0 connections. Tab steps through nodes; ? lists keys; / searches; 0 resets the view." width="923" height="504" data-scene-width="923" data-scene-height="504" data-slug="engine-release-history" data-type="timeline" viewBox="0 0 923 504" preserveAspectRatio="xMidYMid meet"><defs></defs><g class="lay-lanes" aria-hidden="true"><g class="lane"><rect class="lane-bg" x="0" y="76" width="923" height="128"/><line class="lane-rule" x1="0" y1="76" x2="923" y2="76"/><text class="lane-label"><tspan x="16" y="92">SKILL</tspan></text></g><g class="lane is-alt"><rect class="lane-bg" x="0" y="214" width="923" height="128"/><line class="lane-rule" x1="0" y1="214" x2="923" y2="214"/><text class="lane-label"><tspan x="16" y="230">ADAPTER</tspan></text></g><g class="lane"><rect class="lane-bg" x="0" y="352" width="923" height="128"/><line class="lane-rule" x1="0" y1="352" x2="923" y2="352"/><line class="lane-rule" x1="0" y1="480" x2="923" y2="480"/><text class="lane-label"><tspan x="16" y="368">LICENSE</tspan></text></g></g><g class="lay-groups" aria-hidden="true"></g><g class="lay-lifelines" aria-hidden="true"></g><g class="lay-axis" aria-hidden="true"><g class="axis axis-time"><line class="axis-line" x1="201" y1="44" x2="787" y2="44"/><line class="axis-tick" x1="201" y1="40" x2="201" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="201" y="61">Jan 16</tspan></text><line class="axis-tick" x1="285" y1="40" x2="285" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="285" y="61">Jan 30</tspan></text><line class="axis-tick" x1="368" y1="40" x2="368" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="368" y="61">Feb 13</tspan></text><line class="axis-tick" x1="452" y1="40" x2="452" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="452" y="61">Feb 27</tspan></text><line class="axis-tick" x1="536" y1="40" x2="536" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="536" y="61">Mar 13</tspan></text><line class="axis-tick" x1="620" y1="40" x2="620" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="620" y="61">Mar 27</tspan></text><line class="axis-tick" x1="703" y1="40" x2="703" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="703" y="61">Apr 10</tspan></text><line class="axis-tick" x1="787" y1="40" x2="787" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="787" y="61">Apr 24</tspan></text></g></g><g class="lay-edges" aria-hidden="true"></g><g class="lay-nodes"><g class="node k-service shape-event" data-node-id="v215" data-label="2.4 — earlier modes" data-kind="service" data-meta="2025-01-20" data-search="2025-01-20" tabindex="0" role="button" aria-label="2.4 — earlier modes, service node, 2025-01-20. 0 outgoing edges, 0 incoming edges."><rect class="node-hit" x="150" y="86" width="149" height="52"/><polyline class="event-leader" points="225,90 225,52"/><circle class="event-dot" cx="225" cy="52" r="2.8"/><rect class="node-box" x="154" y="90" width="141" height="44" rx="6"/><rect class="node-stripe" x="155" y="91" width="3" height="42" rx="1.5"/><text class="node-label" text-anchor="start"><tspan x="168" y="108.2">2.4 — earlier modes</tspan></text><text class="node-sublabel event-date" text-anchor="start"><tspan x="168" y="125.4">2025-01-20</tspan></text></g><g class="node k-service shape-event" data-node-id="v216" data-label="2.6 — ten types complete" data-kind="service" data-meta="2025-02-10" data-search="2025-02-10" tabindex="0" role="button" aria-label="2.6 — ten types complete, service node, 2025-02-10. 0 outgoing edges, 0 incoming edges."><rect class="node-hit" x="260" y="142" width="180" height="52"/><polyline class="event-leader" points="264,146 256,146 256,52 350,52"/><circle class="event-dot" cx="350" cy="52" r="2.8"/><rect class="node-box" x="264" y="146" width="172" height="44" rx="6"/><rect class="node-stripe" x="265" y="147" width="3" height="42" rx="1.5"/><text class="node-label" text-anchor="start"><tspan x="278" y="164.2">2.6 — ten types complete</tspan></text><text class="node-sublabel event-date" text-anchor="start"><tspan x="278" y="181.4">2025-02-10</tspan></text></g><g class="node k-service shape-event" data-node-id="v300" data-label="3.0.0 — stable rewrite" data-kind="service" data-meta="2025-03-05" data-search="2025-03-05" tabindex="0" role="button" aria-label="3.0.0 — stable rewrite, service node, 2025-03-05. 0 outgoing edges, 0 incoming edges."><rect class="node-hit" x="404" y="86" width="168" height="52"/><polyline class="event-leader" points="488,90 488,52"/><circle class="event-dot" cx="488" cy="52" r="2.8"/><rect class="node-box" x="408" y="90" width="160" height="44" rx="6"/><rect class="node-stripe" x="409" y="91" width="3" height="42" rx="1.5"/><text class="node-label" text-anchor="start"><tspan x="422" y="108.2">3.0.0 — stable rewrite</tspan></text><text class="node-sublabel event-date" text-anchor="start"><tspan x="422" y="125.4">2025-03-05</tspan></text></g><g class="node k-service shape-event" data-node-id="v301" data-label="3.0.1 — install fix" data-kind="service" data-meta="2025-03-05" data-search="2025-03-05" tabindex="0" role="button" aria-label="3.0.1 — install fix, service node, 2025-03-05. 0 outgoing edges, 0 incoming edges."><rect class="node-hit" x="576" y="86" width="149" height="52"/><polyline class="event-leader" points="651,90 651,84 488,84 488,52"/><circle class="event-dot" cx="488" cy="52" r="2.8"/><rect class="node-box" x="580" y="90" width="141" height="44" rx="6"/><rect class="node-stripe" x="581" y="91" width="3" height="42" rx="1.5"/><text class="node-label" text-anchor="start"><tspan x="594" y="108.2">3.0.1 — install fix</tspan></text><text class="node-sublabel event-date" text-anchor="start"><tspan x="594" y="125.4">2025-03-05</tspan></text></g><g class="node k-service shape-event" data-node-id="v310" data-label="3.1.0 — typed JSON IR" data-kind="service" data-meta="2025-04-02" data-search="2025-04-02" tabindex="0" role="button" aria-label="3.1.0 — typed JSON IR, service node, 2025-04-02. 0 outgoing edges, 0 incoming edges."><rect class="node-hit" x="574" y="142" width="162" height="52"/><polyline class="event-leader" points="578,146 570,146 570,52 655,52"/><circle class="event-dot" cx="655" cy="52" r="2.8"/><rect class="node-box" x="578" y="146" width="154" height="44" rx="6"/><rect class="node-stripe" x="579" y="147" width="3" height="42" rx="1.5"/><text class="node-label" text-anchor="start"><tspan x="592" y="164.2">3.1.0 — typed JSON IR</tspan></text><text class="node-sublabel event-date" text-anchor="start"><tspan x="592" y="181.4">2025-04-02</tspan></text></g><g class="node k-service shape-event" data-node-id="v320" data-label="3.2.0 — explainer pages" data-kind="service" data-meta="2025-04-16" data-search="2025-04-16" tabindex="0" role="button" aria-label="3.2.0 — explainer pages, service node, 2025-04-16. 0 outgoing edges, 0 incoming edges."><rect class="node-hit" x="729" y="86" width="174" height="52"/><polyline class="event-leader" points="816,90 816,84 739,84 739,52"/><circle class="event-dot" cx="739" cy="52" r="2.8"/><rect class="node-box" x="733" y="90" width="166" height="44" rx="6"/><rect class="node-stripe" x="734" y="91" width="3" height="42" rx="1.5"/><text class="node-label" text-anchor="start"><tspan x="747" y="108.2">3.2.0 — explainer pages</tspan></text><text class="node-sublabel event-date" text-anchor="start"><tspan x="747" y="125.4">2025-04-16</tspan></text></g><g class="node k-service shape-event" data-node-id="dsh" data-label="Host adapter 1.0.0" data-kind="service" data-meta="2025-04-18" data-search="2025-04-18" tabindex="0" role="button" aria-label="Host adapter 1.0.0, service node, 2025-04-18. 0 outgoing edges, 0 incoming edges."><rect class="node-hit" x="680" y="224" width="143" height="52"/><polyline class="event-leader" points="752,228 751,52"/><circle class="event-dot" cx="751" cy="52" r="2.8"/><rect class="node-box" x="684" y="228" width="135" height="44" rx="6"/><rect class="node-stripe" x="685" y="229" width="3" height="42" rx="1.5"/><text class="node-label" text-anchor="start"><tspan x="698" y="246.2">Host adapter 1.0.0</tspan></text><text class="node-sublabel event-date" text-anchor="start"><tspan x="698" y="263.4">2025-04-18</tspan></text></g><g class="node k-service shape-event" data-node-id="license" data-label="Apache-2.0 license switch" data-kind="service" data-meta="2025-04-20" data-search="2025-04-20" tabindex="0" role="button" aria-label="Apache-2.0 license switch, service node, 2025-04-20. 0 outgoing edges, 0 incoming edges."><rect class="node-hit" x="670" y="362" width="186" height="52"/><polyline class="event-leader" points="763,366 763,52"/><circle class="event-dot" cx="763" cy="52" r="2.8"/><rect class="node-box" x="674" y="366" width="178" height="44" rx="6"/><rect class="node-stripe" x="675" y="367" width="3" height="42" rx="1.5"/><text class="node-label" text-anchor="start"><tspan x="688" y="384.2">Apache-2.0 license switch</tspan></text><text class="node-sublabel event-date" text-anchor="start"><tspan x="688" y="401.4">2025-04-20</tspan></text></g></g></svg>
+<svg id="diagram" class="diagram" role="img" aria-label="Engine Release History. timeline diagram, 8 nodes, 0 connections. Tab steps through nodes; ? lists keys; / searches; 0 resets the view." width="923" height="504" data-scene-width="923" data-scene-height="504" data-slug="engine-release-history" data-type="timeline" viewBox="0 0 923 504" preserveAspectRatio="xMidYMid meet"><defs></defs><g class="lay-lanes" aria-hidden="true"><g class="lane"><rect class="lane-bg" x="0" y="76" width="923" height="128"/><line class="lane-rule" x1="0" y1="76" x2="923" y2="76"/><text class="lane-label"><tspan x="16" y="92">SKILL</tspan></text></g><g class="lane is-alt"><rect class="lane-bg" x="0" y="214" width="923" height="128"/><line class="lane-rule" x1="0" y1="214" x2="923" y2="214"/><text class="lane-label"><tspan x="16" y="230">ADAPTER</tspan></text></g><g class="lane"><rect class="lane-bg" x="0" y="352" width="923" height="128"/><line class="lane-rule" x1="0" y1="352" x2="923" y2="352"/><line class="lane-rule" x1="0" y1="480" x2="923" y2="480"/><text class="lane-label"><tspan x="16" y="368">LICENSE</tspan></text></g></g><g class="lay-groups" aria-hidden="true"></g><g class="lay-lifelines" aria-hidden="true"></g><g class="lay-axis" aria-hidden="true"><g class="axis axis-time"><line class="axis-line" x1="201" y1="44" x2="787" y2="44"/><line class="axis-tick" x1="201" y1="40" x2="201" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="201" y="61">Jan 16</tspan></text><line class="axis-tick" x1="285" y1="40" x2="285" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="285" y="61">Jan 30</tspan></text><line class="axis-tick" x1="368" y1="40" x2="368" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="368" y="61">Feb 13</tspan></text><line class="axis-tick" x1="452" y1="40" x2="452" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="452" y="61">Feb 27</tspan></text><line class="axis-tick" x1="536" y1="40" x2="536" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="536" y="61">Mar 13</tspan></text><line class="axis-tick" x1="620" y1="40" x2="620" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="620" y="61">Mar 27</tspan></text><line class="axis-tick" x1="703" y1="40" x2="703" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="703" y="61">Apr 10</tspan></text><line class="axis-tick" x1="787" y1="40" x2="787" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="787" y="61">Apr 24</tspan></text></g></g><g class="lay-edges" aria-hidden="true"></g><g class="lay-edge-labels" aria-hidden="true"></g><g class="lay-nodes"><g class="node k-service shape-event" data-node-id="v215" data-label="2.4 — earlier modes" data-kind="service" data-meta="2025-01-20" data-search="2025-01-20" tabindex="0" role="button" aria-label="2.4 — earlier modes, service node, 2025-01-20. 0 outgoing edges, 0 incoming edges."><rect class="node-hit" x="150" y="86" width="149" height="52"/><polyline class="event-leader" points="225,90 225,52"/><circle class="event-dot" cx="225" cy="52" r="2.8"/><rect class="node-box" x="154" y="90" width="141" height="44" rx="6"/><rect class="node-stripe" x="155" y="91" width="3" height="42" rx="1.5"/><text class="node-label" text-anchor="start"><tspan x="168" y="108.2">2.4 — earlier modes</tspan></text><text class="node-sublabel event-date" text-anchor="start"><tspan x="168" y="125.4">2025-01-20</tspan></text></g><g class="node k-service shape-event" data-node-id="v216" data-label="2.6 — ten types complete" data-kind="service" data-meta="2025-02-10" data-search="2025-02-10" tabindex="0" role="button" aria-label="2.6 — ten types complete, service node, 2025-02-10. 0 outgoing edges, 0 incoming edges."><rect class="node-hit" x="260" y="142" width="180" height="52"/><polyline class="event-leader" points="264,146 256,146 256,52 350,52"/><circle class="event-dot" cx="350" cy="52" r="2.8"/><rect class="node-box" x="264" y="146" width="172" height="44" rx="6"/><rect class="node-stripe" x="265" y="147" width="3" height="42" rx="1.5"/><text class="node-label" text-anchor="start"><tspan x="278" y="164.2">2.6 — ten types complete</tspan></text><text class="node-sublabel event-date" text-anchor="start"><tspan x="278" y="181.4">2025-02-10</tspan></text></g><g class="node k-service shape-event" data-node-id="v300" data-label="3.0.0 — stable rewrite" data-kind="service" data-meta="2025-03-05" data-search="2025-03-05" tabindex="0" role="button" aria-label="3.0.0 — stable rewrite, service node, 2025-03-05. 0 outgoing edges, 0 incoming edges."><rect class="node-hit" x="404" y="86" width="168" height="52"/><polyline class="event-leader" points="488,90 488,52"/><circle class="event-dot" cx="488" cy="52" r="2.8"/><rect class="node-box" x="408" y="90" width="160" height="44" rx="6"/><rect class="node-stripe" x="409" y="91" width="3" height="42" rx="1.5"/><text class="node-label" text-anchor="start"><tspan x="422" y="108.2">3.0.0 — stable rewrite</tspan></text><text class="node-sublabel event-date" text-anchor="start"><tspan x="422" y="125.4">2025-03-05</tspan></text></g><g class="node k-service shape-event" data-node-id="v301" data-label="3.0.1 — install fix" data-kind="service" data-meta="2025-03-05" data-search="2025-03-05" tabindex="0" role="button" aria-label="3.0.1 — install fix, service node, 2025-03-05. 0 outgoing edges, 0 incoming edges."><rect class="node-hit" x="576" y="86" width="149" height="52"/><polyline class="event-leader" points="651,90 651,84 488,84 488,52"/><circle class="event-dot" cx="488" cy="52" r="2.8"/><rect class="node-box" x="580" y="90" width="141" height="44" rx="6"/><rect class="node-stripe" x="581" y="91" width="3" height="42" rx="1.5"/><text class="node-label" text-anchor="start"><tspan x="594" y="108.2">3.0.1 — install fix</tspan></text><text class="node-sublabel event-date" text-anchor="start"><tspan x="594" y="125.4">2025-03-05</tspan></text></g><g class="node k-service shape-event" data-node-id="v310" data-label="3.1.0 — typed JSON IR" data-kind="service" data-meta="2025-04-02" data-search="2025-04-02" tabindex="0" role="button" aria-label="3.1.0 — typed JSON IR, service node, 2025-04-02. 0 outgoing edges, 0 incoming edges."><rect class="node-hit" x="574" y="142" width="162" height="52"/><polyline class="event-leader" points="578,146 570,146 570,52 655,52"/><circle class="event-dot" cx="655" cy="52" r="2.8"/><rect class="node-box" x="578" y="146" width="154" height="44" rx="6"/><rect class="node-stripe" x="579" y="147" width="3" height="42" rx="1.5"/><text class="node-label" text-anchor="start"><tspan x="592" y="164.2">3.1.0 — typed JSON IR</tspan></text><text class="node-sublabel event-date" text-anchor="start"><tspan x="592" y="181.4">2025-04-02</tspan></text></g><g class="node k-service shape-event" data-node-id="v320" data-label="3.2.0 — explainer pages" data-kind="service" data-meta="2025-04-16" data-search="2025-04-16" tabindex="0" role="button" aria-label="3.2.0 — explainer pages, service node, 2025-04-16. 0 outgoing edges, 0 incoming edges."><rect class="node-hit" x="729" y="86" width="174" height="52"/><polyline class="event-leader" points="816,90 816,84 739,84 739,52"/><circle class="event-dot" cx="739" cy="52" r="2.8"/><rect class="node-box" x="733" y="90" width="166" height="44" rx="6"/><rect class="node-stripe" x="734" y="91" width="3" height="42" rx="1.5"/><text class="node-label" text-anchor="start"><tspan x="747" y="108.2">3.2.0 — explainer pages</tspan></text><text class="node-sublabel event-date" text-anchor="start"><tspan x="747" y="125.4">2025-04-16</tspan></text></g><g class="node k-service shape-event" data-node-id="dsh" data-label="Host adapter 1.0.0" data-kind="service" data-meta="2025-04-18" data-search="2025-04-18" tabindex="0" role="button" aria-label="Host adapter 1.0.0, service node, 2025-04-18. 0 outgoing edges, 0 incoming edges."><rect class="node-hit" x="680" y="224" width="143" height="52"/><polyline class="event-leader" points="752,228 751,52"/><circle class="event-dot" cx="751" cy="52" r="2.8"/><rect class="node-box" x="684" y="228" width="135" height="44" rx="6"/><rect class="node-stripe" x="685" y="229" width="3" height="42" rx="1.5"/><text class="node-label" text-anchor="start"><tspan x="698" y="246.2">Host adapter 1.0.0</tspan></text><text class="node-sublabel event-date" text-anchor="start"><tspan x="698" y="263.4">2025-04-18</tspan></text></g><g class="node k-service shape-event" data-node-id="license" data-label="Apache-2.0 license switch" data-kind="service" data-meta="2025-04-20" data-search="2025-04-20" tabindex="0" role="button" aria-label="Apache-2.0 license switch, service node, 2025-04-20. 0 outgoing edges, 0 incoming edges."><rect class="node-hit" x="670" y="362" width="186" height="52"/><polyline class="event-leader" points="763,366 763,52"/><circle class="event-dot" cx="763" cy="52" r="2.8"/><rect class="node-box" x="674" y="366" width="178" height="44" rx="6"/><rect class="node-stripe" x="675" y="367" width="3" height="42" rx="1.5"/><text class="node-label" text-anchor="start"><tspan x="688" y="384.2">Apache-2.0 license switch</tspan></text><text class="node-sublabel event-date" text-anchor="start"><tspan x="688" y="401.4">2025-04-20</tspan></text></g></g></svg>
     </div>
     <div class="canvas-note" aria-hidden="true">923 × 504 px · scene v1</div>
     <div class="searchbar" id="searchbar" hidden>
@@ -268,6 +272,8 @@ var exportBtn=$("export-btn");
 var exportMenu=$("export-menu");
 var exportSvgBtn=$("export-svg");
 var exportPngBtn=$("export-png");
+var copyPngBtn=$("copy-png");
+var mmToggleBtn=$("minimap-toggle");
 var exportWebpBtn=$("export-webp"),exportJpegBtn=$("export-jpeg");
 var copyMermaidBtn=$("copy-mermaid"),copyJsonBtn=$("copy-json");
 var findB=$("search-btn"),traceB=$("trace-btn"),linkB=$("copy-link");
@@ -569,7 +575,8 @@ if(zoomOutBtn)zoomOutBtn.addEventListener("click",function(){zoomBy(1/1.2);write
 if(zoomResetBtn)zoomResetBtn.addEventListener("click",function(){resetAll(true);});
 if(printBtn)printBtn.addEventListener("click",function(){print();});
 var nodes=svg?slice(svg.querySelectorAll(".node[data-node-id]")):[];
-var edges=svg?slice(svg.querySelectorAll(".edge[data-from]")):[];
+var edgeGroups=svg?slice(svg.querySelectorAll(".edge[data-from]")):[];
+var edges=edgeGroups.filter(function(el){return!el.classList.contains("edge-tag");});
 var lifelines=svg?slice(svg.querySelectorAll(".lifeline")):[];
 var neighbours=Object.create(null);
 var edgeCount=Object.create(null);
@@ -634,7 +641,7 @@ setClass(node,"is-active",isNear&&!isFocused);
 setClass(node,"is-focus",isFocused);
 setClass(node,"is-route",pathNodes[nodeId]===1);
 });
-edges.forEach(function(edge){
+edgeGroups.forEach(function(edge){
 var on=any&&
 (focused[edge.getAttribute("data-from")]===1||focused[edge.getAttribute("data-to")]===1);
 if(pathEdges)on=on&&pathEdges[edgeDomKey(edge)]===1;
@@ -996,6 +1003,7 @@ mmContent.appendChild(r);
 });
 mmReady=true;
 mm.hidden=false;
+applyMinimapPreference();
 mmView();
 }
 function mmView(){
@@ -1339,7 +1347,7 @@ if(presentB)presentB.addEventListener("click",function(){setPresent(!present);})
 doc.addEventListener("pointermove",function(event){
 if(present&&dot)dot.style.transform=`translate3d(${fixed(event.clientX - 6)}px,${fixed(event.clientY - 6)}px,0)`;
 },{passive:true});
-var HELP="0=fit and reset|+ , -=zoom in / out (wheel zooms at the pointer)|f=focus mode, chrome hidden|Enter=pin the focused node, open the inspector|Esc=close or clear the innermost thing|/=search labels, sublabels, kinds|Ctrl F=in-page search, not the browser findbar|r=trace a shortest route: click start, then target|p=presentation mode with a laser dot|t=start or stop the walkthrough|arrows=pan the minimap, or step the walkthrough|?=this sheet|Ctrl P=print one page";
+var HELP="m=minimap on or off|0=fit and reset|+ , -=zoom in / out (wheel zooms at the pointer)|f=focus mode, chrome hidden|Enter=pin the focused node, open the inspector|Esc=close or clear the innermost thing|/=search labels, sublabels, kinds|Ctrl F=in-page search, not the browser findbar|r=trace a shortest route: click start, then target|p=presentation mode with a laser dot|t=start or stop the walkthrough|arrows=pan the minimap, or step the walkthrough|?=this sheet|Ctrl P=print one page";
 var helpOpen=false;
 var helpReturn=null;
 function fillHelp(){
@@ -1666,6 +1674,66 @@ exportFailure();
 }
 }
 function exportPng(){exportRaster("png","image/png");}
+function copyPng(){
+try{
+var svgText=buildSvgText();
+if(!svgText){exportFailure();return;}
+var scale=2;
+var width=Math.round(SCENE.width*scale);
+var height=Math.round(SCENE.height*scale);
+var image=new Image();
+image.onload=function(){
+try{
+var canvasEl=doc.createElement("canvas");
+canvasEl.width=width;
+canvasEl.height=height;
+var ctx=canvasEl.getContext("2d");
+if(!ctx){exportFailure();return;}
+ctx.fillStyle=paperColor();
+ctx.fillRect(0,0,width,height);
+ctx.drawImage(image,0,0,width,height);
+canvasEl.toBlob(function(blob){
+if(!blob){exportFailure();return;}
+if(!navigator.clipboard||typeof ClipboardItem==="undefined"){
+download(blob,exportFilename("png"));
+announce("Clipboard unavailable — PNG downloaded instead.");
+return;
+}
+navigator.clipboard.write([new ClipboardItem({"image/png":blob})]).then(
+function(){announce("PNG copied to clipboard.");},
+function(){
+download(blob,exportFilename("png"));
+announce("Clipboard blocked by the browser — PNG downloaded instead.");
+}
+);
+},"image/png");
+}catch(err){
+exportFailure();
+}
+};
+image.onerror=exportFailure;
+image.src="data:image/svg+xml;charset=utf-8,"+encodeURIComponent(svgText);
+}catch(err){
+exportFailure();
+}
+}
+var MM_KEY="naqsha-minimap";
+function minimapEnabled(){
+try{return localStorage.getItem(MM_KEY)!=="off";}catch(err){return true;}
+}
+function applyMinimapPreference(){
+var on=minimapEnabled();
+if(mm)mm.hidden=!on;
+if(mmToggleBtn){
+sa(mmToggleBtn,"aria-pressed",on?"true":"false");
+mmToggleBtn.classList.toggle("is-off",!on);
+}
+}
+function setMinimap(on){
+try{localStorage.setItem(MM_KEY,on?"on":"off");}catch(err){}
+applyMinimapPreference();
+announce(on?"Minimap shown.":"Minimap hidden.");
+}
 function exportWebp(){exportRaster("webp","image/webp",0.95);}
 function exportJpeg(){exportRaster("jpeg","image/jpeg",0.92);}
 var exportOpen=false;
@@ -1702,6 +1770,17 @@ event.stopPropagation();
 setExportOpen(false,true);
 exportSvg();
 });
+if(copyPngBtn)copyPngBtn.addEventListener("click",function(event){
+event.preventDefault();
+setExportOpen(false,false);
+copyPng();
+});
+if(mmToggleBtn){
+mmToggleBtn.addEventListener("click",function(){
+setMinimap(!minimapEnabled());
+});
+applyMinimapPreference();
+}
 if(exportPngBtn)exportPngBtn.addEventListener("click",function(event){
 event.stopPropagation();
 setExportOpen(false,true);
@@ -1855,6 +1934,11 @@ event.preventDefault();
 toggleTour();
 return;
 }
+}
+if(event.key==="m"||event.key==="M"){
+event.preventDefault();
+setMinimap(!minimapEnabled());
+return;
 }
 if(event.key==="0"){
 event.preventDefault();

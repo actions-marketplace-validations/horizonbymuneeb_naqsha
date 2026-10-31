@@ -475,7 +475,10 @@
   /* ---- focus graph ---------------------------------------------------- */
 
   var nodes = svg ? slice(svg.querySelectorAll(".node[data-node-id]")) : [];
-  var edges = svg ? slice(svg.querySelectorAll(".edge[data-from]")) : [];
+  var edgeGroups = svg ? slice(svg.querySelectorAll(".edge[data-from]")) : [];
+  /* Labels live in their own layer (drawn above every line), so the graph and
+     its degree counts read only the line half; highlighting paints both. */
+  var edges = edgeGroups.filter(function (el) { return !el.classList.contains("edge-tag"); });
   var lifelines = svg ? slice(svg.querySelectorAll(".lifeline")) : [];
   var neighbours = Object.create(null);
   var edgeCount = Object.create(null);
@@ -552,7 +555,7 @@
       setClass(node, "is-route", pathNodes[nodeId] === 1);
     });
 
-    edges.forEach(function (edge) {
+    edgeGroups.forEach(function (edge) {
       var on = any &&
         (focused[edge.getAttribute("data-from")] === 1 || focused[edge.getAttribute("data-to")] === 1);
       if (pathEdges) on = on && pathEdges[edgeDomKey(edge)] === 1;

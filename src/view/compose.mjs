@@ -1179,36 +1179,52 @@ function renderEdgeBadge(edge) {
   return renderDiffBadge(edge.status, cx, cy, 6);
 }
 
-function renderEdge(edge) {
-  const kind = edge.kind;
-  const forcedDash = edge.dashed && kind !== "return" && kind !== "async" && kind !== "data";
-  const classes = ["edge", "k-" + kind];
+/* Edges render in two passes: every line first, then every label chip. In one
+   pass a later edge's line paints straight through an earlier edge's label,
+   which reads as a strikethrough. The label group is marked `edge-tag` so the
+   viewer can tell the two halves apart when it counts degrees. */
+function edgeGroupAttrs(edge, extraClass) {
+  const classes = ["edge", "k-" + edge.kind];
+  const forcedDash = edge.dashed && edge.kind !== "return" && edge.kind !== "async" && edge.kind !== "data";
   if (forcedDash) classes.push("forced-dash");
   if (edge.status) classes.push("st-" + edge.status);
+  if (extraClass) classes.push(extraClass);
+  return '<g class="' + classes.join(" ") + '" data-edge-id="' + esc(edge.id) +
+    '" data-from="' + esc(edge.from) + '" data-to="' + esc(edge.to) +
+    '" data-label="' + esc(edge.label) + '" data-kind="' + edge.kind +
+    (edge.card ? '" data-card="' + esc(edge.card) : "") +
+    '" aria-hidden="true">';
+}
 
-  const d = roundedPath(edge.points, 8);
-  let markerAttrs = "";
+function edgeMarkerAttrs(edge) {
+  const kind = edge.kind;
+  let attrs = "";
   if (CLASS_EDGE_KINDS.indexOf(kind) >= 0) {
     if (kind === "composition") {
-      markerAttrs = ' marker-start="url(#' + markerId(kind, true) + ')"';
+      attrs = ' marker-start="url(#' + markerId(kind, true) + ')"';
     } else if (kind !== "association") {
-      markerAttrs = ' marker-end="url(#' + markerId(kind, false) + ')"';
+      attrs = ' marker-end="url(#' + markerId(kind, false) + ')"';
     }
-  } else {
-    if (edge.arrow === "end" || edge.arrow === "both") {
-      markerAttrs += ' marker-end="url(#' + markerId(kind, false) + ')"';
-    }
-    if (edge.arrow === "start" || edge.arrow === "both") {
-      markerAttrs += ' marker-start="url(#' + markerId(kind, true) + ')"';
-    }
+    return attrs;
   }
+  if (edge.arrow === "end" || edge.arrow === "both") {
+    attrs += ' marker-end="url(#' + markerId(kind, false) + ')"';
+  }
+  if (edge.arrow === "start" || edge.arrow === "both") {
+    attrs += ' marker-start="url(#' + markerId(kind, true) + ')"';
+  }
+  return attrs;
+}
 
-  let out = '<g class="' + classes.join(" ") + '" data-edge-id="' + esc(edge.id) +
-    '" data-from="' + esc(edge.from) + '" data-to="' + esc(edge.to) +
-    '" data-label="' + esc(edge.label) + '" data-kind="' + kind +
-    (edge.card ? '" data-card="' + esc(edge.card) : "") +
-    '" aria-hidden="true">' +
-    '<path class="edge-line" d="' + d + '"' + markerAttrs + "/>";
+function renderEdgeLine(edge) {
+  const d = roundedPath(edge.points, 8);
+  return edgeGroupAttrs(edge) +
+    '<path class="edge-line" d="' + d + '"' + edgeMarkerAttrs(edge) + "/></g>";
+}
+
+function renderEdgeLabel(edge) {
+  if (!edge.label && !edge.card && !edge.status) return "";
+  let out = edgeGroupAttrs(edge, "edge-tag");
 
   if (edge.card) out += renderCardinality(edge);
 
@@ -1319,6 +1335,56 @@ function renderCardinality(edge) {
 
 /* ---- group / legend / meta -------------------------------------------- */
 
+/* Group labels sit in a 26px band above their members. Two sibling groups that
+   share a top edge (a boundary parked inside another boundary) put both labels
+   on the same row, and the wider one prints straight through the narrower. Give
+   each label a slot, outer groups first, falling back to the right edge of its
+   own box when the top-left corner is already taken. */
+function placeGroupLabels(groups) {
+  const placed = [];
+  // Smallest first: an inner boundary keeps its own top-left corner, and the
+  // outer one takes the far right of its (much wider) box when they collide.
+  const order = groups
+    .map((group, index) => index)
+    .filter((index) => groups[index].label)
+    .sort((a, b) => (groups[a].w * groups[a].h) - (groups[b].w * groups[b].h) || a - b);
+
+  for (const index of order) {
+    const group = groups[index];
+    const text = group.label.toUpperCase();
+    // .group-label is 11px, weight 600, 0.09em tracking: measured at 8.8px a
+    // glyph, which the generic em table underestimates by ~15%.
+    const width = Math.round(text.length * 8.8) + 2;
+    const y = group.y + 16;
+    const clash = (x, anchor) => {
+      const left = anchor === "end" ? x - width : x;
+      const box = { x: left - 3, y: y - 11, w: width + 6, h: 15 };
+      return placed.some((other) => (
+        box.x < other.x + other.w && box.x + box.w > other.x &&
+        box.y < other.y + other.h && box.y + box.h > other.y
+      ));
+    };
+    let x = group.x + 12;
+    let anchor = "start";
+    if (clash(x, anchor)) {
+      const right = group.x + group.w - 12;
+      if (!clash(right, "end")) {
+        x = right;
+        anchor = "end";
+      }
+    }
+    group.labelX = x;
+    group.labelAnchor = anchor;
+    placed.push({
+      x: (anchor === "end" ? x - width : x) - 3,
+      y: y - 11,
+      w: width + 6,
+      h: 15,
+    });
+  }
+  return groups;
+}
+
 function renderGroup(group, type) {
   const label = group.label ? group.label.toUpperCase() : "";
   if (type === "dataflow" && group.kind === "zone") {
@@ -1355,7 +1421,9 @@ function renderGroup(group, type) {
     '<rect class="group-box" x="' + fixed(group.x) + '" y="' + fixed(group.y) +
     '" width="' + fixed(group.w) + '" height="' + fixed(group.h) + '" rx="6"/>';
   if (label) {
-    out += '<text class="group-label"><tspan x="' + fixed(group.x + 12) + '" y="' + fixed(group.y + 16) + '">' +
+    const lx = group.labelX == null ? group.x + 12 : group.labelX;
+    const anchor = group.labelAnchor === "end" ? ' text-anchor="end"' : "";
+    out += '<text class="group-label"' + anchor + '><tspan x="' + fixed(lx) + '" y="' + fixed(group.y + 16) + '">' +
       esc(label) + "</tspan></text>";
   }
   return out + "</g>";
@@ -1600,10 +1668,11 @@ function renderDiagram(scene) {
     '" viewBox="0 0 ' + fixed(scene.width) + " " + fixed(scene.height) + '" preserveAspectRatio="xMidYMid meet">' +
     "<defs>" + markerDefs(markerKinds) + "</defs>" +
     '<g class="lay-lanes" aria-hidden="true">' + renderLanes(scene.lanes, scene) + "</g>" +
-    '<g class="lay-groups" aria-hidden="true">' + scene.groups.map((group) => renderGroup(group, scene.type)).join("") + "</g>" +
+    '<g class="lay-groups" aria-hidden="true">' + placeGroupLabels(scene.groups).map((group) => renderGroup(group, scene.type)).join("") + "</g>" +
     '<g class="lay-lifelines" aria-hidden="true">' + renderLifelines(scene) + "</g>" +
     '<g class="lay-axis" aria-hidden="true">' + renderAxis(scene.axis) + "</g>" +
-    '<g class="lay-edges" aria-hidden="true">' + scene.edges.map(renderEdge).join("") + "</g>" +
+    '<g class="lay-edges" aria-hidden="true">' + scene.edges.map(renderEdgeLine).join("") + "</g>" +
+    '<g class="lay-edge-labels" aria-hidden="true">' + scene.edges.map(renderEdgeLabel).join("") + "</g>" +
     '<g class="lay-nodes">' + scene.nodes.map((node) => renderNode(node, graph)).join("") + "</g>" +
     "</svg>";
 }

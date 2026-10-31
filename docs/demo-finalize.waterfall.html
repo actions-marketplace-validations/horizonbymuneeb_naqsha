@@ -50,6 +50,9 @@
         <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="2.3"></circle><path d="M8 1.7v2.1M8 12.2v2.1M1.7 8h2.1M12.2 8h2.1"></path></svg>
       </button>
       <span class="tsep" aria-hidden="true"></span>
+      <button type="button" class="tbtn" id="minimap-toggle" aria-label="Show or hide the minimap (m)" title="Minimap (m)" aria-pressed="true">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2.2" y="3.2" width="11.6" height="9.6" rx="1.2"></rect><rect x="9.2" y="8.6" width="3.2" height="2.6" rx=".5" class="fillmark"></rect></svg>
+      </button>
       <button type="button" class="tbtn" id="print-btn" aria-label="Print diagram" title="Print diagram">
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.6 6V3h6.8v3"></path><rect x="2.5" y="6" width="11" height="5.2" rx="1"></rect><path d="M4.6 9.6h6.8V14H4.6z"></path></svg>
       </button>
@@ -60,6 +63,7 @@
         <div class="export-menu" id="export-menu" role="menu" aria-label="Export options" hidden>
           <button type="button" class="export-item" id="export-svg" role="menuitem"><span class="export-fmt">SVG</span><span class="export-name">Download SVG</span></button>
           <button type="button" class="export-item" id="export-png" role="menuitem"><span class="export-fmt">PNG</span><span class="export-name">Download PNG (2×)</span></button>
+          <button type="button" class="export-item" id="copy-png" role="menuitem"><span class="export-fmt">COPY</span><span class="export-name">Copy PNG to clipboard</span></button>
           <button type="button" class="export-item" id="export-webp" role="menuitem"><span class="export-fmt">WEBP</span><span class="export-name">Download WebP</span></button>
           <button type="button" class="export-item" id="export-jpeg" role="menuitem"><span class="export-fmt">JPEG</span><span class="export-name">Download JPEG</span></button>
           <button type="button" class="export-item" id="copy-mermaid" role="menuitem"><span class="export-fmt">MMD</span><span class="export-name">Copy as Mermaid</span></button>
@@ -88,7 +92,7 @@
   <main class="stage" id="stage">
     <svg class="grid" aria-hidden="true"><defs><pattern id="naqsha-dotgrid" width="24" height="24" patternUnits="userSpaceOnUse"><circle class="dot" cx="1" cy="1" r="1"></circle></pattern></defs><rect width="100%" height="100%" fill="url(#naqsha-dotgrid)"></rect></svg>
     <div class="canvas-inner" id="canvas-inner">
-<svg id="diagram" class="diagram" role="img" aria-label="Finalize Run. waterfall diagram, 5 nodes, 0 connections. Tab steps through nodes; ? lists keys; / searches; 0 resets the view." width="916" height="272" data-scene-width="916" data-scene-height="272" data-slug="finalize-run" data-type="waterfall" viewBox="0 0 916 272" preserveAspectRatio="xMidYMid meet"><defs></defs><g class="lay-lanes" aria-hidden="true"><g class="lane"><rect class="lane-bg" x="0" y="70" width="916" height="34"/><line class="lane-rule" x1="0" y1="70" x2="916" y2="70"/></g><g class="lane is-alt"><rect class="lane-bg" x="0" y="106" width="916" height="34"/><line class="lane-rule" x1="0" y1="106" x2="916" y2="106"/></g><g class="lane"><rect class="lane-bg" x="0" y="142" width="916" height="34"/><line class="lane-rule" x1="0" y1="142" x2="916" y2="142"/></g><g class="lane is-alt"><rect class="lane-bg" x="0" y="178" width="916" height="34"/><line class="lane-rule" x1="0" y1="178" x2="916" y2="178"/></g><g class="lane"><rect class="lane-bg" x="0" y="214" width="916" height="34"/><line class="lane-rule" x1="0" y1="214" x2="916" y2="214"/><line class="lane-rule" x1="0" y1="248" x2="916" y2="248"/></g></g><g class="lay-groups" aria-hidden="true"></g><g class="lay-lifelines" aria-hidden="true"></g><g class="lay-axis" aria-hidden="true"><g class="axis axis-numeric"><line class="axis-line" x1="182" y1="44" x2="876" y2="44"/><line class="axis-tick" x1="182" y1="40" x2="182" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="182" y="61">0</tspan></text><line class="axis-tick" x1="281" y1="40" x2="281" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="281" y="61">2000</tspan></text><line class="axis-tick" x1="380" y1="40" x2="380" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="380" y="61">4000</tspan></text><line class="axis-tick" x1="479" y1="40" x2="479" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="479" y="61">6000</tspan></text><line class="axis-tick" x1="579" y1="40" x2="579" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="579" y="61">8000</tspan></text><line class="axis-tick" x1="678" y1="40" x2="678" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="678" y="61">10000</tspan></text><line class="axis-tick" x1="777" y1="40" x2="777" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="777" y="61">12000</tspan></text><line class="axis-tick" x1="876" y1="40" x2="876" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="876" y="61">14000</tspan></text></g></g><g class="lay-edges" aria-hidden="true"></g><g class="lay-nodes"><g class="node k-service shape-span" data-node-id="validate" data-label="Gate 1 · validate" data-kind="service" data-meta="907" data-search="0 907 907" tabindex="0" role="button" aria-label="Gate 1 · validate, service node, 907. 0 outgoing edges, 0 incoming edges."><rect class="node-hit" x="20" y="70" width="211" height="34"/><rect class="node-box span-bar" x="182" y="74" width="45" height="26" rx="3"/><text class="span-name" text-anchor="end"><tspan x="170" y="91">Gate 1 · validate</tspan></text><text class="span-value" text-anchor="start"><tspan x="201" y="91">907</tspan></text></g><g class="node k-service shape-span" data-node-id="deliver" data-label="Gate 2 · deliver" data-kind="service" data-meta="872" data-search="907 872 872" tabindex="0" role="button" aria-label="Gate 2 · deliver, service node, 872. 0 outgoing edges, 0 incoming edges."><rect class="node-hit" x="20" y="106" width="254" height="34"/><rect class="node-box span-bar" x="227" y="110" width="43" height="26" rx="3"/><text class="span-name" text-anchor="end"><tspan x="170" y="127">Gate 2 · deliver</tspan></text><text class="span-value" text-anchor="start"><tspan x="244" y="127">872</tspan></text></g><g class="node k-service shape-span" data-node-id="check" data-label="Gate 3 · check" data-kind="service" data-meta="256" data-search="1779 256 256" tabindex="0" role="button" aria-label="Gate 3 · check, service node, 256. 0 outgoing edges, 0 incoming edges."><rect class="node-hit" x="20" y="142" width="295" height="34"/><rect class="node-box span-bar" x="270" y="146" width="24" height="26" rx="3"/><text class="span-name" text-anchor="end"><tspan x="170" y="163">Gate 3 · check</tspan></text><text class="span-value" text-anchor="start"><tspan x="289" y="163">256</tspan></text></g><g class="node k-service shape-span" data-node-id="browser" data-label="Gate 4 · browser-check" data-kind="service" data-meta="9703" data-search="2035 9703 9703" tabindex="0" role="button" aria-label="Gate 4 · browser-check, service node, 9703. 0 outgoing edges, 0 incoming edges."><rect class="node-hit" x="20" y="178" width="748" height="34"/><rect class="node-box span-bar" x="283" y="182" width="481" height="26" rx="3"/><text class="span-name" text-anchor="end"><tspan x="170" y="199">Gate 4 · browser-check</tspan></text><text class="span-value" text-anchor="start"><tspan x="732" y="199">9703</tspan></text></g><g class="node k-service shape-span" data-node-id="receipt" data-label="receipt + atomic write" data-kind="service" data-meta="750" data-search="11738 750 750" tabindex="0" role="button" aria-label="receipt + atomic write, service node, 750. 0 outgoing edges, 0 incoming edges."><rect class="node-hit" x="20" y="214" width="785" height="34"/><rect class="node-box span-bar" x="764" y="218" width="37" height="26" rx="3"/><text class="span-name" text-anchor="end"><tspan x="170" y="235">receipt + atomic write</tspan></text><text class="span-value" text-anchor="start"><tspan x="775" y="235">750</tspan></text></g></g></svg>
+<svg id="diagram" class="diagram" role="img" aria-label="Finalize Run. waterfall diagram, 5 nodes, 0 connections. Tab steps through nodes; ? lists keys; / searches; 0 resets the view." width="916" height="272" data-scene-width="916" data-scene-height="272" data-slug="finalize-run" data-type="waterfall" viewBox="0 0 916 272" preserveAspectRatio="xMidYMid meet"><defs></defs><g class="lay-lanes" aria-hidden="true"><g class="lane"><rect class="lane-bg" x="0" y="70" width="916" height="34"/><line class="lane-rule" x1="0" y1="70" x2="916" y2="70"/></g><g class="lane is-alt"><rect class="lane-bg" x="0" y="106" width="916" height="34"/><line class="lane-rule" x1="0" y1="106" x2="916" y2="106"/></g><g class="lane"><rect class="lane-bg" x="0" y="142" width="916" height="34"/><line class="lane-rule" x1="0" y1="142" x2="916" y2="142"/></g><g class="lane is-alt"><rect class="lane-bg" x="0" y="178" width="916" height="34"/><line class="lane-rule" x1="0" y1="178" x2="916" y2="178"/></g><g class="lane"><rect class="lane-bg" x="0" y="214" width="916" height="34"/><line class="lane-rule" x1="0" y1="214" x2="916" y2="214"/><line class="lane-rule" x1="0" y1="248" x2="916" y2="248"/></g></g><g class="lay-groups" aria-hidden="true"></g><g class="lay-lifelines" aria-hidden="true"></g><g class="lay-axis" aria-hidden="true"><g class="axis axis-numeric"><line class="axis-line" x1="182" y1="44" x2="876" y2="44"/><line class="axis-tick" x1="182" y1="40" x2="182" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="182" y="61">0</tspan></text><line class="axis-tick" x1="281" y1="40" x2="281" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="281" y="61">2000</tspan></text><line class="axis-tick" x1="380" y1="40" x2="380" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="380" y="61">4000</tspan></text><line class="axis-tick" x1="479" y1="40" x2="479" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="479" y="61">6000</tspan></text><line class="axis-tick" x1="579" y1="40" x2="579" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="579" y="61">8000</tspan></text><line class="axis-tick" x1="678" y1="40" x2="678" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="678" y="61">10000</tspan></text><line class="axis-tick" x1="777" y1="40" x2="777" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="777" y="61">12000</tspan></text><line class="axis-tick" x1="876" y1="40" x2="876" y2="48"/><text class="axis-label" text-anchor="middle"><tspan x="876" y="61">14000</tspan></text></g></g><g class="lay-edges" aria-hidden="true"></g><g class="lay-edge-labels" aria-hidden="true"></g><g class="lay-nodes"><g class="node k-service shape-span" data-node-id="validate" data-label="Gate 1 · validate" data-kind="service" data-meta="907" data-search="0 907 907" tabindex="0" role="button" aria-label="Gate 1 · validate, service node, 907. 0 outgoing edges, 0 incoming edges."><rect class="node-hit" x="20" y="70" width="211" height="34"/><rect class="node-box span-bar" x="182" y="74" width="45" height="26" rx="3"/><text class="span-name" text-anchor="end"><tspan x="170" y="91">Gate 1 · validate</tspan></text><text class="span-value" text-anchor="start"><tspan x="201" y="91">907</tspan></text></g><g class="node k-service shape-span" data-node-id="deliver" data-label="Gate 2 · deliver" data-kind="service" data-meta="872" data-search="907 872 872" tabindex="0" role="button" aria-label="Gate 2 · deliver, service node, 872. 0 outgoing edges, 0 incoming edges."><rect class="node-hit" x="20" y="106" width="254" height="34"/><rect class="node-box span-bar" x="227" y="110" width="43" height="26" rx="3"/><text class="span-name" text-anchor="end"><tspan x="170" y="127">Gate 2 · deliver</tspan></text><text class="span-value" text-anchor="start"><tspan x="244" y="127">872</tspan></text></g><g class="node k-service shape-span" data-node-id="check" data-label="Gate 3 · check" data-kind="service" data-meta="256" data-search="1779 256 256" tabindex="0" role="button" aria-label="Gate 3 · check, service node, 256. 0 outgoing edges, 0 incoming edges."><rect class="node-hit" x="20" y="142" width="295" height="34"/><rect class="node-box span-bar" x="270" y="146" width="24" height="26" rx="3"/><text class="span-name" text-anchor="end"><tspan x="170" y="163">Gate 3 · check</tspan></text><text class="span-value" text-anchor="start"><tspan x="289" y="163">256</tspan></text></g><g class="node k-service shape-span" data-node-id="browser" data-label="Gate 4 · browser-check" data-kind="service" data-meta="9703" data-search="2035 9703 9703" tabindex="0" role="button" aria-label="Gate 4 · browser-check, service node, 9703. 0 outgoing edges, 0 incoming edges."><rect class="node-hit" x="20" y="178" width="748" height="34"/><rect class="node-box span-bar" x="283" y="182" width="481" height="26" rx="3"/><text class="span-name" text-anchor="end"><tspan x="170" y="199">Gate 4 · browser-check</tspan></text><text class="span-value" text-anchor="start"><tspan x="732" y="199">9703</tspan></text></g><g class="node k-service shape-span" data-node-id="receipt" data-label="receipt + atomic write" data-kind="service" data-meta="750" data-search="11738 750 750" tabindex="0" role="button" aria-label="receipt + atomic write, service node, 750. 0 outgoing edges, 0 incoming edges."><rect class="node-hit" x="20" y="214" width="785" height="34"/><rect class="node-box span-bar" x="764" y="218" width="37" height="26" rx="3"/><text class="span-name" text-anchor="end"><tspan x="170" y="235">receipt + atomic write</tspan></text><text class="span-value" text-anchor="start"><tspan x="775" y="235">750</tspan></text></g></g></svg>
     </div>
     <div class="canvas-note" aria-hidden="true">916 × 272 px · scene v1</div>
     <div class="searchbar" id="searchbar" hidden>
@@ -268,6 +272,8 @@ var exportBtn=$("export-btn");
 var exportMenu=$("export-menu");
 var exportSvgBtn=$("export-svg");
 var exportPngBtn=$("export-png");
+var copyPngBtn=$("copy-png");
+var mmToggleBtn=$("minimap-toggle");
 var exportWebpBtn=$("export-webp"),exportJpegBtn=$("export-jpeg");
 var copyMermaidBtn=$("copy-mermaid"),copyJsonBtn=$("copy-json");
 var findB=$("search-btn"),traceB=$("trace-btn"),linkB=$("copy-link");
@@ -569,7 +575,8 @@ if(zoomOutBtn)zoomOutBtn.addEventListener("click",function(){zoomBy(1/1.2);write
 if(zoomResetBtn)zoomResetBtn.addEventListener("click",function(){resetAll(true);});
 if(printBtn)printBtn.addEventListener("click",function(){print();});
 var nodes=svg?slice(svg.querySelectorAll(".node[data-node-id]")):[];
-var edges=svg?slice(svg.querySelectorAll(".edge[data-from]")):[];
+var edgeGroups=svg?slice(svg.querySelectorAll(".edge[data-from]")):[];
+var edges=edgeGroups.filter(function(el){return!el.classList.contains("edge-tag");});
 var lifelines=svg?slice(svg.querySelectorAll(".lifeline")):[];
 var neighbours=Object.create(null);
 var edgeCount=Object.create(null);
@@ -634,7 +641,7 @@ setClass(node,"is-active",isNear&&!isFocused);
 setClass(node,"is-focus",isFocused);
 setClass(node,"is-route",pathNodes[nodeId]===1);
 });
-edges.forEach(function(edge){
+edgeGroups.forEach(function(edge){
 var on=any&&
 (focused[edge.getAttribute("data-from")]===1||focused[edge.getAttribute("data-to")]===1);
 if(pathEdges)on=on&&pathEdges[edgeDomKey(edge)]===1;
@@ -996,6 +1003,7 @@ mmContent.appendChild(r);
 });
 mmReady=true;
 mm.hidden=false;
+applyMinimapPreference();
 mmView();
 }
 function mmView(){
@@ -1339,7 +1347,7 @@ if(presentB)presentB.addEventListener("click",function(){setPresent(!present);})
 doc.addEventListener("pointermove",function(event){
 if(present&&dot)dot.style.transform=`translate3d(${fixed(event.clientX - 6)}px,${fixed(event.clientY - 6)}px,0)`;
 },{passive:true});
-var HELP="0=fit and reset|+ , -=zoom in / out (wheel zooms at the pointer)|f=focus mode, chrome hidden|Enter=pin the focused node, open the inspector|Esc=close or clear the innermost thing|/=search labels, sublabels, kinds|Ctrl F=in-page search, not the browser findbar|r=trace a shortest route: click start, then target|p=presentation mode with a laser dot|t=start or stop the walkthrough|arrows=pan the minimap, or step the walkthrough|?=this sheet|Ctrl P=print one page";
+var HELP="m=minimap on or off|0=fit and reset|+ , -=zoom in / out (wheel zooms at the pointer)|f=focus mode, chrome hidden|Enter=pin the focused node, open the inspector|Esc=close or clear the innermost thing|/=search labels, sublabels, kinds|Ctrl F=in-page search, not the browser findbar|r=trace a shortest route: click start, then target|p=presentation mode with a laser dot|t=start or stop the walkthrough|arrows=pan the minimap, or step the walkthrough|?=this sheet|Ctrl P=print one page";
 var helpOpen=false;
 var helpReturn=null;
 function fillHelp(){
@@ -1666,6 +1674,66 @@ exportFailure();
 }
 }
 function exportPng(){exportRaster("png","image/png");}
+function copyPng(){
+try{
+var svgText=buildSvgText();
+if(!svgText){exportFailure();return;}
+var scale=2;
+var width=Math.round(SCENE.width*scale);
+var height=Math.round(SCENE.height*scale);
+var image=new Image();
+image.onload=function(){
+try{
+var canvasEl=doc.createElement("canvas");
+canvasEl.width=width;
+canvasEl.height=height;
+var ctx=canvasEl.getContext("2d");
+if(!ctx){exportFailure();return;}
+ctx.fillStyle=paperColor();
+ctx.fillRect(0,0,width,height);
+ctx.drawImage(image,0,0,width,height);
+canvasEl.toBlob(function(blob){
+if(!blob){exportFailure();return;}
+if(!navigator.clipboard||typeof ClipboardItem==="undefined"){
+download(blob,exportFilename("png"));
+announce("Clipboard unavailable — PNG downloaded instead.");
+return;
+}
+navigator.clipboard.write([new ClipboardItem({"image/png":blob})]).then(
+function(){announce("PNG copied to clipboard.");},
+function(){
+download(blob,exportFilename("png"));
+announce("Clipboard blocked by the browser — PNG downloaded instead.");
+}
+);
+},"image/png");
+}catch(err){
+exportFailure();
+}
+};
+image.onerror=exportFailure;
+image.src="data:image/svg+xml;charset=utf-8,"+encodeURIComponent(svgText);
+}catch(err){
+exportFailure();
+}
+}
+var MM_KEY="naqsha-minimap";
+function minimapEnabled(){
+try{return localStorage.getItem(MM_KEY)!=="off";}catch(err){return true;}
+}
+function applyMinimapPreference(){
+var on=minimapEnabled();
+if(mm)mm.hidden=!on;
+if(mmToggleBtn){
+sa(mmToggleBtn,"aria-pressed",on?"true":"false");
+mmToggleBtn.classList.toggle("is-off",!on);
+}
+}
+function setMinimap(on){
+try{localStorage.setItem(MM_KEY,on?"on":"off");}catch(err){}
+applyMinimapPreference();
+announce(on?"Minimap shown.":"Minimap hidden.");
+}
 function exportWebp(){exportRaster("webp","image/webp",0.95);}
 function exportJpeg(){exportRaster("jpeg","image/jpeg",0.92);}
 var exportOpen=false;
@@ -1702,6 +1770,17 @@ event.stopPropagation();
 setExportOpen(false,true);
 exportSvg();
 });
+if(copyPngBtn)copyPngBtn.addEventListener("click",function(event){
+event.preventDefault();
+setExportOpen(false,false);
+copyPng();
+});
+if(mmToggleBtn){
+mmToggleBtn.addEventListener("click",function(){
+setMinimap(!minimapEnabled());
+});
+applyMinimapPreference();
+}
 if(exportPngBtn)exportPngBtn.addEventListener("click",function(event){
 event.stopPropagation();
 setExportOpen(false,true);
@@ -1855,6 +1934,11 @@ event.preventDefault();
 toggleTour();
 return;
 }
+}
+if(event.key==="m"||event.key==="M"){
+event.preventDefault();
+setMinimap(!minimapEnabled());
+return;
 }
 if(event.key==="0"){
 event.preventDefault();

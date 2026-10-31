@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.4.1
+
+### Fixed
+- **Edge labels are no longer struck through by later edges.** Every edge drew its
+  line and its own label in one group, so the next edge's line painted over the
+  previous edge's chip. Lines now render in their own layer and every label sits
+  above all of them (`lay-edges` → `lay-edge-labels` → `lay-nodes`).
+- **Two group labels can no longer print on top of each other.** Sibling boundaries
+  that share a top edge (an inner boundary inside an outer one) put both labels on
+  the same row — "Agent Surface" ran straight through "Integrations". Labels are now
+  placed smallest-group-first, and a label that would collide moves to the right
+  edge of its own box.
+- 4 new tests (184 total) assert the layer order, that every chip carries its edge
+  id, and that no two group labels overlap in the shipped example.
+
 ## 1.4.0
 
 ### Added
